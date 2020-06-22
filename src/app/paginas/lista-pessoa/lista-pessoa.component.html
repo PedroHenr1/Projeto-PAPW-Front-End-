@@ -1,0 +1,47 @@
+<div class="fade-ef" *ngIf="!existePessoa()" >
+  <b><p style="font-size: 18px;color: white;margin: 0;padding:0;text-align: center">Nenhuma pessoa cadstrada</p></b>
+</div>
+
+<div class="fade-ef" *ngIf="existePessoa()" style="padding-top: 0px;margin-top: 0px;">
+  <div *ngFor="let pessoa of pessoas">
+    <form class="form" [formGroup]="formLista" (ngSubmit)="atualizarUsuario(formLista.value)">
+        <div class="container-fluid">
+          <p class="display-4" style="color: white; font-size: 20px;">{{pessoa.pessoaId}}</p>
+          <div class=" campo-form-div">
+            <label for="pessoaNome">Nome:</label>
+            <input class="campo-form-lista" type="text" id="pessoaNome" name="pessoaNome" value="{{pessoa.pessoaNome}}">
+          </div>
+          <div class=" campo-form-div">
+            <label for="pessoaNome">Sobrenome:</label>
+            <input class="campo-form-lista" type="text" id="pessoaSobrenome" name="pessoaSobrenome" value="{{pessoa.pessoaSobrenome}}">
+          </div>
+          <div class=" campo-form-div">
+            <label for="pessoaCpf">CPF:</label>
+            <input class="campo-form-lista" type="text" id="pessoaCpf" name="pessoaCpf" value="{{pessoa.pessoaCpf}}">
+          </div>
+          <div class=" campo-form-div">
+            <label for="pessoaEmail">Emil:</label>
+            <input class="campo-form-lista" type="text" id="pessoaEmail" name="pessoaEmail" value="{{pessoa.pessoaEmail}}">
+          </div>
+          <div class=" campo-form-div">
+            <label for="pessoaIsAdmin">ADMIN:</label>
+            <input class="campo-form-lista" type="text" id="pessoaIsAdmin" name="pessoaIsAdmin" value="{{pessoa.pessoaIsAdmin}}">
+          </div>
+          <div class=" campo-form-div">
+            <label for="pessoaTelefone">Telefone:</label>
+            <input class="campo-form-lista" type="text" id="pessoaTelefone" name="pessoaTelefone" value="{{pessoa.pessoaTelefone}}">
+          </div>
+          <div class=" campo-form-div">
+            <label for="pessoaStatus">Status:</label>
+            <input class="campo-form-lista" type="text" id="pessoaStatus" name=""  value="{{pessoa.pessoaStatusCadastro}}">
+          </div>
+        </div>
+      <div class="container-fluid">
+        <img class="icons-lista" src="assets/user_permit_acess.png" (click)="validarCadastroUsuario(pessoa.pessoaId)" style="cursor: pointer;">
+        <img class="icons-lista" src="assets/edit_user.png">
+        <img class="icons-lista" src="assets/user_delete.png" (click)="deletarUsuario(pessoa.pessoaId)" style="cursor: pointer;">
+      </div>
+    </form>
+    <hr>
+  </div>
+</div>

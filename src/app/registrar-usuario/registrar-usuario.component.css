@@ -1,0 +1,26 @@
+.form{
+  transition: 3s;
+  animation: anim-fade 1.5s;
+}
+
+.form-registro label
+{
+  color: #ccc;
+  padding: 5px;
+  font-style: oblique;
+}
+
+.campo-form-registro
+{
+  border: 0px;
+  border-bottom: 3px solid white;
+  border-radius: 2px;
+  background: inherit;
+  padding: 5px;
+  color: white;
+}
+
+.form-check-label
+{
+  color: #ccc;
+}

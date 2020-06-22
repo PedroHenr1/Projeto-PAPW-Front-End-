@@ -1,0 +1,50 @@
+<form class="form" [formGroup]="formRegistroUser" (ngSubmit)="onSubmitRegistrar(formRegistroUser.value)">
+  <div class="form-row form-registro" >
+    <div class="col-md-6 mb-3">
+      <label for="primeiroNome">Nome:</label>
+      <input type="text" class="campo-form-registro" id="primeiroNome" formControlName="pessoaNome" value="" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="sobreNome">Sobrenome:</label>
+    <input type="text" class="campo-form-registro" id="sobreNome" formControlName="pessoaSobrenome" value="" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="pessoaCpf">CPF:</label>
+      <input type="text" id="pessoaCpf" class="campo-form-registro" formControlName="pessoaCpf" value="" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="pessoaEmail">Email:</label>
+      <input type="text" id="pessoaEmail" class="campo-form-registro" formControlName="pessoaEmail" value="" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="pessoaSenha">Senha:</label>
+      <input type="text" id="pessoaSenha" class="campo-form-registro" formControlName="pessoaSenha" value="" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="pessoaEndereco">Endereço:</label>
+      <input type="text" id="pessoaEndereco" class="campo-form-registro" formControlName="pessoaEndereco" value="" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="pessoaTelefone">Telefone:</label>
+      <input type="text" id="pessoaTelefone" class="campo-form-registro" formControlName="pessoaTelefone" value="" required>
+    </div>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+      Acesso Admin
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+    <label class="form-check-label" for="defaultCheck2">
+      Login liberado
+    </label>
+  </div>
+  <button class="btn btn-outline-secondary" [disabled]="formRegistroUser.invalid" type="submit" style="width: 100%;margin-top: 1%;">Enviar</button>
+</form>
+<div style="width: 100%;margin-top: 10%;margin-left: 35%;">
+  <app-sucess-msg></app-sucess-msg>
+  <app-error-msg></app-error-msg>
+</div>
+

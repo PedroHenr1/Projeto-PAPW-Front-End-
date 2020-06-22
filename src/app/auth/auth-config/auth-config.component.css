@@ -1,0 +1,31 @@
+.form{
+  transition: 3s;
+  animation: anim-fade 1.5s;
+}
+
+.form-group label
+{
+  color: #ccc;
+  padding: 5px;
+  font-style: oblique;
+}
+
+.form-group input
+{
+  border: 0px;
+  border-bottom: 3px solid white;
+  border-radius: 2px;
+  background: inherit;
+  padding: 5px;
+  color: white;
+}
+
+@keyframes anim-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}

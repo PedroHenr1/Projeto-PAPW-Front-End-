@@ -1,0 +1,43 @@
+.nav-principal
+{
+  animation: anim 0.5s;
+
+}
+
+.nav-menu-item
+{
+  padding-left: 50px;
+  padding-right: 50px;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+.nav-menu-item:hover
+{
+  transform: scale(1.2);
+  background: #333;
+  cursor: pointer;
+}
+
+.ativada
+{
+  display: none;
+  transform: scale(1.5);
+}
+
+.ativada-menu
+{
+  transform: scale(1.2);
+  background: #333;
+}
+
+@keyframes anim {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+}
+

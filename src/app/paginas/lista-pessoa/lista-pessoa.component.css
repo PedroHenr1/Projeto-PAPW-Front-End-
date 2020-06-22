@@ -1,0 +1,51 @@
+.fade-ef
+{
+  animation: anim-fade 1.5s;
+}
+
+@keyframes anim-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.campo-form-div
+{
+  color: #ccc;
+  margin-left: 100px;
+}
+
+.form
+{
+  background: #333333;
+  border: 1px solid #333;
+  border-radius: 10px;
+}
+
+
+.form-registro label
+{
+  color: #ccc;
+  padding: 5px;
+  font-style: oblique;
+}
+
+.campo-form-lista
+{
+  border: 0px;
+  border-bottom: 3px solid white;
+  border-radius: 2px;
+  background: inherit;
+  padding: 5px;
+  color: white;
+  margin-left: 20px;
+}
+
+.icons-lista
+{
+  padding: 10px;
+}

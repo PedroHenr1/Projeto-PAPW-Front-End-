@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="container" style="margin 10px; padding: 10px;padding-bottom: 0px;padding-left: 15%;padding-top: 25px;">
+    <img src="assets/produto_icons/prod_icon_market.png" style="float: left;padding-right: 10%;">
+    <h1 class="display-4" style="font-size: 32px;color: #ccc">Produtos</h1>
+
+  </div>
+  <hr style="width: 50%;">
+  <div class="div-produto-list" style="align-items: center;overflow-y: scroll;height: 51rem;box-shadow: 5px 5px 5px black;">
+    <div *ngIf="!existeProduto()">
+      <p class="display-4" style="font-size: 18px;color: white;margin: 0;padding:0;text-align: center">Nenhum produto encontrado</p>
+    </div>
+    <div class="card div-produto-item" *ngFor="let produto of produtos" style="box-shadow: 5px 5px 5px #111;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-10">
+            <h4 class="card-title">{{produto.produtoNome}}</h4>
+            <p style="font-size: 16px;margin: 0px;padding: 0px;"><b>R$</b> {{produto.produtoValor}}</p>
+            <p style="margin: 0px;padding: 0px;"><b>Estoque:</b> {{produto.produtoEstoque}}</p>
+            <b>Descrição:</b>
+            <p class="card-text">{{produto.produtoDescricao}}</p>
+          </div>
+          <div class="col-md-2" style="padding: 0px;margin: 0px;">
+            <img src="assets/produto_icons/prod_delete.png" style="cursor:pointer;" (click)="deleteProduto(produto.produtoId)">
+          </div>
+        </div>
+        <button type="button" class="btn" style="width: 100%;margin-top: 5%;" (click)="saveItemCarrinho(produto)">Adicionar Carrinho</button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center;padding: 0px;margin: 0px;">
+  <button type="button" class="btn btn-novo-produto" data-toggle="modal" data-target="#exampleModal">
+    <img src="assets/produto_icons/add_product.png" style="margin-right: 10px;"><span class="display-4">Adicionar novo produto</span>
+  </button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: white">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #333;">
+        <h5 class="modal-title" id="exampleModalLabel">Insira os dados do novo.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color: white;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="background: #111;">
+
+        <form class="form" [formGroup]="formProduto" (ngSubmit)="saveProduto(formProduto.value)">
+          <div class="form-row form-registro" >
+            <div class="col-md-6 mb-3">
+              <label for="produtoNome">Nome</label>
+              <input type="text" id="produtoNome" class="campo-form-produto" formControlName="produtoNome" value="" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="produtoValor">Valor</label>
+              <input type="text" id="produtoValor" class="campo-form-produto" formControlName="produtoValor" value="" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="produtoDescricao">Descricao</label>
+              <input type="text" id="produtoDescricao" class="campo-form-produto" formControlName="produtoDescricao" value="" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="produtoEstoque">Estoque</label>
+              <input type="number" id="produtoEstoque" class="campo-form-produto" formControlName="produtoEstoque" value="" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-success" [disabled]="formProduto.invalid">Inserir produto</button>
+        </form>
+
+      </div>
+      <div class="modal-footer" style="background: #333;">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Fechar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
